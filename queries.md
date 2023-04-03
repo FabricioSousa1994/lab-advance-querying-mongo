@@ -16,13 +16,13 @@ Limit -> 20
 
 filter -> {$and: [{founded_year: {$gte: 2000}}, {founded_year: {$lte: 2005}}]}
 
-project -> {name: 1, founded_year: 1, _id: 0}
+project -> {name: 1, founded_year: 1, \_id: 0}
 
 ### 4. All the companies that had a Valuation Amount of more than 100.000.000 and have been founded before 2010. Retrieve only the `name` and `ipo` fields.
+
 Filter -> {$and: [{"acquisition.price_amount": {$gt: 1000000000}}, {founded_year: {$lt: 2010}}]}
 
-project -> {name: 1, ipo:1, _id: 0}
-
+project -> {name: 1, ipo:1, \_id: 0}
 
 ### 5. All the companies that have less than 1000 employees and have been founded before 2005. Order them by the number of employees and limit the search to 10 companies.
 
@@ -37,14 +37,14 @@ Limit -> 10
 Filter -> {partners: {$exists: false}}
 
 ### 7. All the companies that have a null type of value on the `category_code` field.
+
 Filter -> {category_code: null}
 
-
 ### 8. All the companies that have at least 100 employees but less than 1000. Retrieve only the `name` and `number of employees` fields.
+
 Filter -> {$and: [{number_of_employees: {$gte: 100}}, {number_of_employees: {$lte: 1000}}]}
 
-Project -> {name: 1, number_of_employees: 1, _id: 0}
-
+Project -> {name: 1, number_of_employees: 1, \_id: 0}
 
 ### 9. Order all the companies by their IPO price in a descending order.
 
@@ -70,7 +70,7 @@ Filter -> {$and:[{founded_year: {$lt: 2000}}, {"acquisition.price_amount": {$gt:
 
 Filter -> {"acquisition.acquired_year": {$gt: 2010}}
 
-Project -> {name: 1, acquisition: 1, _id: 0}
+Project -> {name: 1, acquisition: 1, \_id: 0}
 
 Sort-> {"acquisition.price_amount": -1}
 
@@ -78,7 +78,7 @@ Sort-> {"acquisition.price_amount": -1}
 
 Filter -> {founded_year: {$type: "number"}}
 
-Project -> {name: 1, founded_year: 1, _id: 0}
+Project -> {name: 1, founded_year: 1, \_id: 0}
 
 Sort -> {founded_year: 1}
 
@@ -89,7 +89,6 @@ Filter -> {$and: [{founded_day: {$gte: 1}}, {founded_day: {$lte: 7}}]}
 Sort -> {"acquisition.price_amount": -1}
 
 Limit -> 10
-
 
 ### 16. All the companies on the 'web' `category` that have more than 4000 employees. Sort them by the amount of employees in ascending order.
 
@@ -105,12 +104,10 @@ Filter -> {$and: [{"acquisition.price_amount": {$gt: 10000000}}, {"acquisition.p
 
 Filter -> {$and: [{"acquisition.acquired_month": {$gte: 1}}, {"acquisition.acquired_month": {$lte: 3}}]}
 
-Project -> {name: 1, acquisition: 1, _id: 0}
+Project -> {name: 1, acquisition: 1, \_id: 0}
 
 Limit -> 10
 
 ### 19. All the companies that have been founded between 2000 and 2010, but have not been acquired before 2011.
 
 {$and: [{founded_year: {$gte: 2000}}, {founded_year: {$lte: 2010}}, {"acquisition.acquired_year": {$gt: 2011}}]}
-
-
